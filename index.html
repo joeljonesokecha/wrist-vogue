@@ -139,15 +139,36 @@ background:#111;
 <button id="menu-btn">⋮</button>
 </header>
 
-<div id="side-menu">
+  <div id="side-menu" style="
+position:fixed;
+top:0;
+right:-100%;
+width:260px;
+height:100vh;
+background:#111;
+padding:25px;
+transition:0.35s;
+z-index:2000;
+overflow-y:auto;
+">
 
-<button id="close-menu">✕</button>
+<button id="close-menu" style="
+background:none;
+border:none;
+color:white;
+font-size:22px;
+cursor:pointer;
+">
+✕
+</button>
+
 <br>
-<a href="#" style="color:white;text-decoration:none;">Home</a><br><br>
-<a href="#" style="color:white;text-decoration:none;">Shop</a><br><br>
-<a href="#" style="color:white;text-decoration:none;">Contact</a>
 
-</div>
+<a href="#" style="color:white;text-decoration:none;display:block;margin:20px 0;">Home</a>
+<a href="#" style="color:white;text-decoration:none;display:block;margin:20px 0;">Shop</a>
+<a href="#" style="color:white;text-decoration:none;display:block;margin:20px 0;">Contact</a>
+
+  </div>
 
 <section class="hero">
 <h1>Luxury. Precision. Style.</h1>

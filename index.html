@@ -1,136 +1,193 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wrist Vogue | Timeless Luxury</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Wrist Vogue</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#0e0e0e;--card:#171717;--gold:#d4af37;--text:#ffffff}
-body.light{--bg:#f5f5f5;--card:#ffffff;--text:#111111}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text)}
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;position:sticky;top:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:1000}
-header h1{font-family:'Playfair Display',serif;letter-spacing:2px}
-nav a{margin-left:20px;text-decoration:none;color:var(--text);font-weight:500}
-nav a:hover{color:var(--gold)}
-.toggle{cursor:pointer;padding:6px 12px;border:1px solid var(--gold);border-radius:20px;margin-left:20px}
-.hero{height:85vh;display:flex;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=1400&q=80')center/cover}
-.hero h2{font-size:3rem;font-family:'Playfair Display',serif}
-.hero p{margin:20px 0;font-weight:300}
-.btn{padding:10px 20px;background:var(--gold);color:#000;border:none;border-radius:25px;font-weight:600;cursor:pointer}
-.section{padding:80px 8%}
-.section h2{text-align:center;margin-bottom:30px;font-family:'Playfair Display',serif;font-size:2rem}
-.categories{text-align:center;margin-bottom:30px}
-.categories button{margin:5px;padding:8px 15px;border:none;border-radius:20px;cursor:pointer;background:#333;color:#fff}
-.categories button.active{background:var(--gold);color:#000}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
-.card{background:var(--card);padding:20px;border-radius:15px;transition:0.4s}
-.card:hover{transform:translateY(-8px)}
-.card img{width:100%;border-radius:10px}
-.price{color:var(--gold);margin:10px 0}
-.cart{position:fixed;right:0;top:0;width:300px;height:100%;background:var(--card);padding:20px;overflow-y:auto;transform:translateX(100%);transition:0.4s}
-.cart.active{transform:translateX(0)}
-.cart-count{background:var(--gold);color:#000;padding:5px 10px;border-radius:50%}
-footer{text-align:center;padding:30px;background:#111;margin-top:50px}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-family:Playfair Display,serif;
+font-size:55px;
+display:block;
+letter-spacing:3px;
+}
+
+.menu-btn{
+font-size:30px;
+cursor:pointer;
+}
+
+/* SIDE PANEL */
+
+.side-menu{
+position:fixed;
+right:-300px;
+top:0;
+width:260px;
+height:100%;
+background:#141414;
+padding:40px;
+transition:0.4s;
+z-index:2000;
+}
+
+.side-menu.active{
+right:0;
+}
+
+.side-menu a{
+display:block;
+color:white;
+text-decoration:none;
+margin:25px 0;
+font-size:18px;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:Playfair Display,serif;
+font-size:80px;
+}
+
+.hero p{
+margin-top:25px;
+font-weight:300;
+}
+
+/* PRODUCTS */
+
+.products{
+padding:100px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
+
+.card{
+background:#151515;
+padding:22px;
+border-radius:18px;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.card img{
+width:100%;
+border-radius:12px;
+}
+
+.price{
+color:#d4af37;
+margin:12px 0;
+}
+
+.btn{
+background:#d4af37;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+}
+
+footer{
+text-align:center;
+padding:50px;
+background:#111;
+margin-top:80px;
+}
+
 </style>
 </head>
-<body><header>
-<h1>Wrist Vogue</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#shop">Shop</a>
-<span onclick="toggleCart()" style="cursor:pointer">Cart <span class="cart-count" id="cartCount">0</span></span>
-<span class="toggle" onclick="toggleMode()">Mode</span>
-</nav>
-</header><section class="hero" id="home">
+
+<body>
+
+<header>
+<div class="logo">Wrist Vogue</div>
+
 <div>
-<h2>Power. Precision. Prestige.</h2>
-<p>Elite craftsmanship designed for leaders.</p>
-<button class="btn" onclick="scrollToShop()">Explore Collection</button>
+<span class="menu-btn" onclick="toggleMenu()">⋮</span>
 </div>
-</section><section class="section" id="shop">
-<h2>Our Collection</h2><div class="categories" id="categoryButtons"></div><div class="products" id="productList"></div>
-</section><div class="cart" id="cart">
-<h3>Your Cart</h3>
-<div id="cartItems"></div>
-<h4>Total: $<span id="total">0</span></h4>
-<button class="btn" onclick="checkout()">Checkout</button>
-</div><footer>
-<p>© 2026 Wrist Vogue. All rights reserved.</p>
-</footer><script>
+</header>
 
-/* =============================
-   🛠 ADMIN AREA (EDIT PRODUCTS HERE)
-   ============================= */
+<div class="side-menu" id="sideMenu">
+<a href="#">Home</a>
+<a href="#">Categories</a>
+<a href="#">Fashion</a>
+<a href="#">Contact</a>
+</div>
 
-const products = [
-  {name:"Royal Gold",price:350,category:"Men",image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be?auto=format&fit=crop&w=800&q=80"},
-  {name:"Midnight Steel",price:420,category:"Men",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"},
-  {name:"Rose Elegance",price:390,category:"Women",image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&q=80"},
-  {name:"Diamond Limited",price:950,category:"Limited",image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=80"}
-];
+<section class="hero">
+<div>
+<h1>Wrist Vogue</h1>
+<p>Luxury. Precision. Elegance.</p>
+</div>
+</section>
 
-/* ============================= */
+<section class="products">
 
-let cart=[];
-let currentCategory="All";
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511389026070-a14ae610a1be">
+<h3>Royal Gold Watch</h3>
+<p class="price">$350</p>
+<button class="btn">Add to Cart</button>
+</div>
 
-function renderCategories(){
-  const categories=["All",...new Set(products.map(p=>p.category))];
-  const container=document.getElementById("categoryButtons");
-  container.innerHTML="";
-  categories.forEach(cat=>{
-    const btn=document.createElement("button");
-    btn.innerText=cat;
-    if(cat===currentCategory)btn.classList.add("active");
-    btn.onclick=()=>{currentCategory=cat;renderCategories();renderProducts();};
-    container.appendChild(btn);
-  });
+</section>
+
+<footer>
+© 2026 Wrist Vogue
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("sideMenu").classList.toggle("active");
 }
 
-function renderProducts(){
-  const container=document.getElementById("productList");
-  container.innerHTML="";
-  products
-    .filter(p=>currentCategory==="All"||p.category===currentCategory)
-    .forEach(product=>{
-      container.innerHTML+=`
-      <div class="card">
-        <img src="${product.image}">
-        <h3>${product.name}</h3>
-        <p>${product.category}</p>
-        <p class="price">$${product.price}</p>
-        <button class="btn" onclick="addToCart('${product.name}',${product.price})">Add to Cart</button>
-      </div>`;
-    });
-}
+</script>
 
-function addToCart(name,price){cart.push({name,price});updateCart();}
-
-function updateCart(){
-  document.getElementById("cartCount").innerText=cart.length;
-  let total=0;
-  const items=document.getElementById("cartItems");
-  items.innerHTML="";
-  cart.forEach(item=>{
-    total+=item.price;
-    items.innerHTML+=`<div>${item.name} - $${item.price}</div>`;
-  });
-  document.getElementById("total").innerText=total;
-}
-
-function checkout(){
-  let message="Order Details:%0A";
-  cart.forEach(item=>{message+=item.name+" - $"+item.price+"%0A";});
-  window.open("https://wa.me/2567XXXXXXXX?text="+message);
-}
-
-function toggleCart(){document.getElementById("cart").classList.toggle("active");}
-function toggleMode(){document.body.classList.toggle("light");}
-function scrollToShop(){document.getElementById("shop").scrollIntoView();}
-
-renderCategories();
-renderProducts();
-
-</script></body>
-</html>
+</body>
+   </html>

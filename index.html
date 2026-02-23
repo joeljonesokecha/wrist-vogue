@@ -181,53 +181,26 @@ cursor:pointer;
 </footer>
 
 <script>
-
-/* PRODUCT DATABASE ⭐ */
-
-const products = [
-{name:"Royal Gold Watch",price:350,image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be"},
-{name:"Midnight Steel",price:420,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"},
-{name:"Silver Phantom",price:390,image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade"},
-{name:"Rose Classic",price:310,image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3"},
-{name:"Urban Black",price:280,image:"https://images.unsplash.com/photo-1509048191080-d2984bad6ae5"},
-{name:"Fashion Elite",price:330,image:"https://images.unsplash.com/photo-1524592094714-0f0654e20314"},
-{name:"Luxury Night",price:450,image:"https://images.unsplash.com/photo-1518544887879-3c1e9f3e9f64"},
-{name:"Golden Spirit",price:500,image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade"},
-{name:"Urban Classic",price:370,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"},
-{name:"Diamond Style",price:900,image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be"}
-];
-
-/* RENDER PRODUCTS */
-
-const list=document.getElementById("productList");
-
-products.forEach(p=>{
-list.innerHTML+=`
-<div class="card">
-<img src="${p.image}">
-<h3>${p.name}</h3>
-<p class="price">$${p.price}</p>
-<button class="btn" onclick="order('${p.name}')">
-Order via WhatsApp
-</button>
-</div>
-`;
-});
-
-/* MENU CONTROL */
-
 const menuBtn=document.getElementById("menu-btn");
 const sideMenu=document.getElementById("side-menu");
 const closeBtn=document.getElementById("close-menu");
 
-menuBtn.onclick=()=>sideMenu.style.right="0";
-closeBtn.onclick=()=>sideMenu.style.right="-260px";
-
-/* ORDER SYSTEM */
-
-function order(name){
-window.open("https://wa.me/2567XXXXXXXX?text=I want to order "+encodeURIComponent(name));
+function openMenu(){
+sideMenu.style.right="0";
 }
+
+function closeMenu(){
+sideMenu.style.right="-100%";
+}
+
+menuBtn.onclick=openMenu;
+closeBtn.onclick=closeMenu;
+
+window.onclick=function(e){
+if(!sideMenu.contains(e.target) && e.target!==menuBtn){
+closeMenu();
+}
+};
 
 </script>
 

@@ -5,45 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wrist Vogue</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 
 body{
 margin:0;
-background:#0b0b0b;
+background:#0f0f0f;
 color:white;
-font-family:Inter,sans-serif;
+font-family:Arial,sans-serif;
 }
-
-/* Header */
 
 header{
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:20px 8%;
+background:#111;
 position:sticky;
 top:0;
-background:rgba(0,0,0,0.9);
-z-index:1000;
 }
 
-/* Logo */
-
-.logo{
-font-family:Playfair Display,serif;
-font-size:55px;
-letter-spacing:3px;
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-/* Menu */
+.products{
+padding:60px 8%;
+}
 
-#menu-btn{
-background:none;
+.card{
+background:#1a1a1a;
+padding:20px;
+border-radius:15px;
+max-width:300px;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.btn{
+background:gold;
 border:none;
-font-size:28px;
-color:white;
+padding:10px 20px;
+border-radius:25px;
 cursor:pointer;
 }
 
@@ -54,70 +62,9 @@ right:-260px;
 width:260px;
 height:100%;
 background:#111;
-padding:25px;
-transition:0.3s;
-z-index:2000;
-}
-
-#close-menu{
-background:none;
-border:none;
-font-size:22px;
-color:white;
-cursor:pointer;
-}
-
-/* Hero */
-
-.hero{
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.hero h1{
-font-family:Playfair Display,serif;
-font-size:80px;
-}
-
-/* Products */
-
-.products{
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.card{
-background:#151515;
 padding:20px;
-border-radius:15px;
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-.price{
-color:#d4af37;
-}
-
-.btn{
-background:#d4af37;
-border:none;
-padding:10px 20px;
-border-radius:25px;
-cursor:pointer;
-}
-
-footer{
-text-align:center;
-padding:40px;
-background:#111;
+transition:0.3s;
+z-index:1000;
 }
 
 </style>
@@ -126,28 +73,48 @@ background:#111;
 <body>
 
 <header>
-<div class="logo">Wrist Vogue</div>
-
+<h1>Wrist Vogue</h1>
 <button id="menu-btn">⋮</button>
 </header>
 
 <div id="side-menu">
 
 <button id="close-menu">✕</button>
-
 <br>
-<a href="#" style="color:white;text-decoration:none;">Home</a><br><br>
-<a href="#" style="color:white;text-decoration:none;">Categories</a><br><br>
-<a href="#" style="color:white;text-decoration:none;">Contact</a>
+<a href="#" style="color:white">Home</a><br><br>
+<a href="#" style="color:white">Shop</a><br><br>
+<a href="#" style="color:white">Contact</a>
 
 </div>
 
 <section class="hero">
-<h1>Wrist Vogue</h1>
+<div>
+<h1>Luxury Redefined</h1>
+<p>Premium watches crafted for elegance</p>
+</div>
 </section>
 
 <section class="products">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1511389026070-a14ae610a1be">
-<h3>Royal Gold Watch</
+<h3>Classic Gold</h3>
+<p>$250</p>
+<button class="btn">Order</button>
+</div>
+
+</section>
+
+<script>
+
+const menuBtn=document.getElementById("menu-btn");
+const sideMenu=document.getElementById("side-menu");
+const closeBtn=document.getElementById("close-menu");
+
+menuBtn.onclick=()=>sideMenu.style.right="0";
+closeBtn.onclick=()=>sideMenu.style.right="-260px";
+
+</script>
+
+</body>
+</html>

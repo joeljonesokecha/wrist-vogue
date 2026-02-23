@@ -5,55 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wrist Vogue</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
 
 body{
 margin:0;
-background:#0f0f0f;
+background:#0b0b0b;
 color:white;
-font-family:Arial,sans-serif;
+font-family:Inter,sans-serif;
 }
+
+/* Header */
 
 header{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:20px 8%;
-background:#111;
 position:sticky;
 top:0;
+background:rgba(0,0,0,0.9);
+z-index:1000;
 }
 
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+.logo{
+font-family:Playfair Display,serif;
+font-size:40px;
 }
 
-.products{
-padding:60px 8%;
-}
+/* Menu */
 
-.card{
-background:#1a1a1a;
-padding:20px;
-border-radius:15px;
-max-width:300px;
-}
-
-.card img{
-width:100%;
-border-radius:10px;
-}
-
-.btn{
-background:gold;
+#menu-btn{
+background:none;
 border:none;
-padding:10px 20px;
-border-radius:25px;
+font-size:28px;
+color:white;
 cursor:pointer;
 }
+
+/* Side Menu */
 
 #side-menu{
 position:fixed;
@@ -62,9 +53,70 @@ right:-260px;
 width:260px;
 height:100%;
 background:#111;
-padding:20px;
+padding:25px;
 transition:0.3s;
-z-index:1000;
+z-index:2000;
+}
+
+#close-menu{
+background:none;
+border:none;
+font-size:22px;
+color:white;
+cursor:pointer;
+}
+
+/* Hero */
+
+.hero{
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero h1{
+font-family:Playfair Display,serif;
+font-size:60px;
+}
+
+/* Products */
+
+.products{
+padding:60px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#151515;
+padding:20px;
+border-radius:15px;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.price{
+color:#d4af37;
+}
+
+.btn{
+background:#d4af37;
+border:none;
+padding:10px 20px;
+border-radius:25px;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#111;
 }
 
 </style>
@@ -73,7 +125,7 @@ z-index:1000;
 <body>
 
 <header>
-<h1>Wrist Vogue</h1>
+<div class="logo">Wrist Vogue</div>
 <button id="menu-btn">⋮</button>
 </header>
 
@@ -81,31 +133,57 @@ z-index:1000;
 
 <button id="close-menu">✕</button>
 <br>
-<a href="#" style="color:white">Home</a><br><br>
-<a href="#" style="color:white">Shop</a><br><br>
-<a href="#" style="color:white">Contact</a>
+<a href="#" style="color:white;text-decoration:none;">Home</a><br><br>
+<a href="#" style="color:white;text-decoration:none;">Shop</a><br><br>
+<a href="#" style="color:white;text-decoration:none;">Contact</a>
 
 </div>
 
 <section class="hero">
-<div>
-<h1>Luxury Redefined</h1>
-<p>Premium watches crafted for elegance</p>
-</div>
+<h1>Luxury. Precision. Style.</h1>
 </section>
 
-<section class="products">
+<section class="products" id="productList"></section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1511389026070-a14ae610a1be">
-<h3>Classic Gold</h3>
-<p>$250</p>
-<button class="btn">Order</button>
-</div>
-
-</section>
+<footer>
+© 2026 Wrist Vogue
+</footer>
 
 <script>
+
+/* PRODUCT DATABASE ⭐ */
+
+const products = [
+{name:"Royal Gold Watch",price:350,image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be"},
+{name:"Midnight Steel",price:420,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"},
+{name:"Silver Phantom",price:390,image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade"},
+{name:"Rose Classic",price:310,image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3"},
+{name:"Urban Black",price:280,image:"https://images.unsplash.com/photo-1509048191080-d2984bad6ae5"},
+{name:"Fashion Elite",price:330,image:"https://images.unsplash.com/photo-1524592094714-0f0654e20314"},
+{name:"Luxury Night",price:450,image:"https://images.unsplash.com/photo-1518544887879-3c1e9f3e9f64"},
+{name:"Golden Spirit",price:500,image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade"},
+{name:"Urban Classic",price:370,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"},
+{name:"Diamond Style",price:900,image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be"}
+];
+
+/* RENDER PRODUCTS */
+
+const list=document.getElementById("productList");
+
+products.forEach(p=>{
+list.innerHTML+=`
+<div class="card">
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<p class="price">$${p.price}</p>
+<button class="btn" onclick="order('${p.name}')">
+Order via WhatsApp
+</button>
+</div>
+`;
+});
+
+/* MENU CONTROL */
 
 const menuBtn=document.getElementById("menu-btn");
 const sideMenu=document.getElementById("side-menu");
@@ -114,7 +192,13 @@ const closeBtn=document.getElementById("close-menu");
 menuBtn.onclick=()=>sideMenu.style.right="0";
 closeBtn.onclick=()=>sideMenu.style.right="-260px";
 
+/* ORDER SYSTEM */
+
+function order(name){
+window.open("https://wa.me/2567XXXXXXXX?text=I want to order "+encodeURIComponent(name));
+}
+
 </script>
 
 </body>
-</html>
+  </html>

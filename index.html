@@ -183,9 +183,23 @@ margin-top:80px;
 
 <script>
 
-function toggleMenu(){
-document.getElementById("sideMenu").classList.toggle("active");
-}
+const menuBtn = document.getElementById("menu-btn");
+const sideMenu = document.getElementById("side-menu");
+const closeBtn = document.getElementById("close-menu");
+
+menuBtn.addEventListener("click", () => {
+    sideMenu.style.right = "0";
+});
+
+closeBtn.addEventListener("click", () => {
+    sideMenu.style.right = "-260px";
+});
+
+window.addEventListener("click", (e) => {
+    if (!sideMenu.contains(e.target) && e.target !== menuBtn) {
+        sideMenu.style.right = "-260px";
+    }
+});
 
 </script>
 

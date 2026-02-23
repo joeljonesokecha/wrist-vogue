@@ -181,26 +181,30 @@ cursor:pointer;
 </footer>
 
 <script>
-const menuBtn=document.getElementById("menu-btn");
-const sideMenu=document.getElementById("side-menu");
-const closeBtn=document.getElementById("close-menu");
-
-function openMenu(){
-sideMenu.style.right="0";
+const products = [
+{
+name:"Royal Gold Watch",
+price:"350",
+image:"https://images.unsplash.com/photo-1511389026070-a14ae610a1be"
+},
+{
+name:"Luxury Black Watch",
+price:"420",
+image:"https://images.unsplash.com/photo-1523275335684-a14ae610a1be"
 }
+];
 
-function closeMenu(){
-sideMenu.style.right="-100%";
-}
+const productList=document.getElementById("productList");
 
-menuBtn.onclick=openMenu;
-closeBtn.onclick=closeMenu;
-
-window.onclick=function(e){
-if(!sideMenu.contains(e.target) && e.target!==menuBtn){
-closeMenu();
-}
-};
+products.forEach(p=>{
+productList.innerHTML+=`
+<div class="card">
+<img src="${p.image}">
+<h3>${p.name}</h3>
+<p>$${p.price}</p>
+</div>
+`;
+});
 
 </script>
 

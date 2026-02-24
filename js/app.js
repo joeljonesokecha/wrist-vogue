@@ -52,7 +52,12 @@ function addToCart(id) {
 }
 
 function updateCart() {
-  document.getElementById("cart-count").innerText = cart.length;
+  const count = document.getElementById("cart-count");
+count.innerText = cart.length;
+count.style.transform = "scale(1.3)";
+setTimeout(() => {
+  count.style.transform = "scale(1)";
+}, 200);
 
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = "";

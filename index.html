@@ -49,17 +49,22 @@
 
 <section id="products" class="product-grid"></section>
 
-<!-- Cart -->
-<div id="cart-modal" class="cart-modal">
-  <div class="cart-content">
+<!-- Cart Slide Panel -->
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
     <span onclick="closeCart()" class="close-btn">×</span>
-    <h2>Your Selection</h2>
-    <div id="cart-items"></div>
+  </div>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-footer">
     <p id="cart-total"></p>
     <button onclick="checkout()">Checkout</button>
   </div>
-</div>
-
+    </div>
 <!-- WhatsApp Button -->
 <a href="https://wa.me/256709290559" class="whatsapp-btn" target="_blank">💬</a>
 

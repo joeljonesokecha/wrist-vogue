@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d0d0d;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #C6A75E;
+    letter-spacing: 2px;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(black, #1a1a1a);
+}
+
+.hero h2 {
+    font-size: 48px;
+    color: #C6A75E;
+}
+
+.search-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.search-container input {
+    width: 50%;
+    padding: 15px;
+    border: none;
+    background: #1a1a1a;
+    color: white;
+    border-bottom: 2px solid #C6A75E;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 40px;
+}
+
+.product-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #C6A75E55;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+button {
+    background: #C6A75E;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e5c87a;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    background: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 15px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: #C6A75E;
+    color: black;
+}
+
+.cart-modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000000cc;
+}
+
+.cart-content {
+    background: #111;
+    width: 400px;
+    padding: 30px;
+    margin: 100px auto;
+  }

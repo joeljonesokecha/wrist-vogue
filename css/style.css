@@ -144,17 +144,14 @@ body {
   }
 
 button {
-  background: #C6A75E;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 15px;
+  transition: all 0.4s ease;
 }
 
 button:hover {
-  background: #e5c87a;
-  box-shadow: 0 0 15px #C6A75E;
-  transform: translateY(-2px);
+  transform: scale(1.05);
 }
 
 .sidebar {

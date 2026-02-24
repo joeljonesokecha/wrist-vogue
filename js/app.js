@@ -87,12 +87,14 @@ function toggleMenu() {
 }
 
 /* Close sidebar when clicking outside */
-window.addEventListener("click", function(e) {
+document.addEventListener("click", function(e) {
   const sidebar = document.getElementById("sidebar");
   const menuIcon = document.querySelector(".menu-icon");
 
-  if (!sidebar.contains(e.target) && 
-      !menuIcon.contains(e.target)) {
+  const clickedInsideSidebar = sidebar.contains(e.target);
+  const clickedMenuIcon = menuIcon.contains(e.target);
+
+  if (!clickedInsideSidebar && !clickedMenuIcon) {
     sidebar.classList.remove("active");
   }
 });

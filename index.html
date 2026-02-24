@@ -124,19 +124,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-  </script><script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  </script>
+<div id="product-modal" class="product-modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeProduct()">×</span>
 
-const firebaseConfig = {
- apiKey: "YOUR_API_KEY",
- authDomain: "wrist-vogue.firebaseapp.com",
- projectId: "wrist-vogue",
- storageBucket: "wrist-vogue.appspot.com",
- messagingSenderId: "239669630911",
- appId: "YOUR_APP_ID"
-};
+    <div class="modal-gallery">
+      <button onclick="prevImage()">‹</button>
+      <img id="modal-image">
+      <button onclick="nextImage()">›</button>
+    </div>
 
-const app = initializeApp(firebaseConfig);
-                         </script>
+    <h2 id="modal-title"></h2>
+    <p id="modal-price"></p>
+    <button onclick="addModalToCart()">Add to Cart</button>
+  </div>
+</div>
+
 </body>
 </html>

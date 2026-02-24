@@ -4,7 +4,7 @@ const products = [
     name: "Audemars Piquet Rose Gold",
     price: 110000,
     category: "men",
-    image: "assets/images/Audemars Piquet Rose Gold"
+    image: "assets/images/image1.mp4"
 },
 {
     id: 2,

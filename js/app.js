@@ -91,7 +91,7 @@ setTimeout(() => {
     `;
   });
 
-  document.getElementById("cart-total").innerText = "Total: $" + total;
+  document.getElementById("cart-total").innerText = "Total: "UGX " + total.toLocaleString();
 }
 
 function changeQuantity(id, amount) {

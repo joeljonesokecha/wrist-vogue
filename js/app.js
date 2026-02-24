@@ -12,7 +12,7 @@ function displayProducts(filtered = products) {
       <div class="product-card" onclick="openProduct(${product.id})">
         <img src="${product.images[0]}" />
         <h3>${product.name}</h3>
-        <p>$${product.price}</p>
+        <p>UGX ${product.price.toLocaleString()}</p>
         <button onclick="addToCart(${product.id}); event.stopPropagation();">
           Add to Cart
         </button>

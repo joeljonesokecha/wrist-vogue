@@ -139,6 +139,13 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #e5c87a;
+  box-shadow: 0 0 15px #C6A75E;
+  transform: translateY(-2px);
 }
 
 .sidebar {

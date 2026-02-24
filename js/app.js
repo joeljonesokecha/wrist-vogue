@@ -205,3 +205,18 @@ function addModalToCart() {
   addToCart(currentProduct.id);
   closeProduct();
 }
+function openProduct(id) {
+  const product = products.find(p => p.id === id);
+
+  if (!product) return;
+
+  currentProduct = product;
+  currentImageIndex = 0;
+
+  document.getElementById("modal-image").src = product.images[0];
+  document.getElementById("modal-title").innerText = product.name;
+  document.getElementById("modal-price").innerText =
+    "UGX " + product.price.toLocaleString();
+
+  document.getElementById("product-modal").style.display = "flex";
+     }

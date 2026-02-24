@@ -43,21 +43,24 @@ function searchProducts() {
 }
 
 /* =========================
-   CART SYSTEM
+   CART SYSTEM (UPGRADED)
 ========================= */
 function addToCart(id) {
-  const item = products.find(p => p.id === id);
-  cart.push(item);
+  const existingItem = cart.find(item => item.id === id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    const product = products.find(p => p.id === id);
+    cart.push({...product, quantity: 1});
+  }
+
   updateCart();
 }
 
 function updateCart() {
   const count = document.getElementById("cart-count");
-count.innerText = cart.length;
-count.style.transform = "scale(1.3)";
-setTimeout(() => {
-  count.style.transform = "scale(1)";
-}, 200);
+  count.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = "";
@@ -65,23 +68,43 @@ setTimeout(() => {
   let total = 0;
 
   cart.forEach(item => {
-    total += item.price;
-    cartItems.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+    total += item.price * item.quantity;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <h4>${item.name}</h4>
+        <p>$${item.price}</p>
+
+        <div class="cart-item-controls">
+          <button onclick="changeQuantity(${item.id}, -1)">-</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity(${item.id}, 1)">+</button>
+          <button onclick="removeItem(${item.id})">Remove</button>
+        </div>
+      </div>
+    `;
   });
 
   document.getElementById("cart-total").innerText = "Total: $" + total;
 }
 
-function checkout() {
-  if (cart.length === 0) {
-    alert("Your cart is empty.");
-  } else {
-    alert("Thank you for shopping with Wrist Vogue.");
-    cart = [];
-    updateCart();
-    closeCart();
+function changeQuantity(id, amount) {
+  const item = cart.find(item => item.id === id);
+  if (!item) return;
+
+  item.quantity += amount;
+
+  if (item.quantity <= 0) {
+    cart = cart.filter(item => item.id !== id);
   }
+
+  updateCart();
 }
+
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+                                }
 
 /* =========================
    SIDEBAR (FIXED VERSION)

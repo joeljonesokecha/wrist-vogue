@@ -178,25 +178,6 @@ document.getElementById("cart-overlay").addEventListener("click", closeCart);
 let currentProduct = null;
 let currentImageIndex = 0;
 
-function displayProducts(filtered = products) {
-  const container = document.getElementById("products");
-  container.innerHTML = "";
-
-  filtered.forEach((product) => {
-    container.innerHTML += `
-      <div class="product-card" onclick="openProduct(${product.id})">
-        <img src="${product.images[0]}" />
-        <h3>${product.name}</h3>
-        <p>$${product.price}</p>
-        <button onclick="addToCart(${product.id}); event.stopPropagation();">
-          Add to Cart
-        </button>
-      </div>
-    `;
-  });
-
-  activateScrollAnimation();
-}
 
 function closeProduct() {
   document.getElementById("product-modal").style.display = "none";

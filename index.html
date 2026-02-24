@@ -13,48 +13,55 @@
 
 <!-- Sidebar -->
 <div id="sidebar" class="sidebar">
+  <div class="sidebar-content">
     <span class="close-btn" onclick="toggleMenu()">×</span>
-    <a href="#" onclick="filterCategory('men')">Men Watches</a>
-    <a href="#" onclick="filterCategory('women')">Women Watches</a>
-    <a href="#" onclick="filterCategory('accessories')">Accessories</a>
+    <a onclick="filterCategory('all')">All</a>
+    <a onclick="filterCategory('men')">Men Watches</a>
+    <a onclick="filterCategory('women')">Women Watches</a>
+    <a onclick="filterCategory('accessories')">Accessories</a>
     <a href="#contact">Contact</a>
+  </div>
 </div>
 
 <!-- Header -->
 <header>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <h1>Wrist Vogue</h1>
-    <div class="cart-icon" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <h1 class="logo">Wrist Vogue</h1>
+  <div class="cart-icon" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
 </header>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
+  <div class="hero-overlay">
     <h2>Timeless Luxury</h2>
-    <p>Where Elegance Meets Precision</p>
+    <p>Precision. Elegance. Power.</p>
+    <button onclick="scrollToProducts()">Explore Collection</button>
+  </div>
 </section>
 
 <!-- Search -->
 <div class="search-container">
-    <input type="text" id="search" placeholder="Search watches..." onkeyup="searchProducts()">
+  <input type="text" id="search" placeholder="Search watches..." onkeyup="searchProducts()">
 </div>
 
 <!-- Products -->
 <section id="products" class="product-grid"></section>
 
-<!-- Cart Modal -->
+<!-- Cart -->
 <div id="cart-modal" class="cart-modal">
-    <div class="cart-content">
-        <span onclick="closeCart()" class="close-btn">×</span>
-        <h2>Your Cart</h2>
-        <div id="cart-items"></div>
-    </div>
+  <div class="cart-content">
+    <span onclick="closeCart()" class="close-btn">×</span>
+    <h2>Your Selection</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+  </div>
 </div>
 
 <!-- Contact -->
 <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>📱 WhatsApp: +256709290559</p>
-    <p>📧 Email: wristvogue@gmail.com</p>
+  <h2>Contact Wrist Vogue</h2>
+  <p>WhatsApp: +256...</p>
+  <p>Email: wristvogue@gmail.com</p>
 </section>
 
 <script src="products/products.js"></script>

@@ -76,9 +76,7 @@
 
 <script src="products/products.js"></script>
 <script src="js/app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-<div id="particles"></div>
 
 <script>
 particlesJS("particles", {
@@ -113,21 +111,32 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
       </script>
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAsVWnKPG95Qy4toE1hytQG4ZlDiPmTaEg",
-  authDomain: "wrist-vogue.firebaseapp.com",
-  projectId: "wrist-vogue",
-  storageBucket: "wrist-vogue.firebasestorage.app",
-  messagingSenderId: "239669630911",
-  appId: "1:239669630911:web:57d809ef14af4fcaf2330a"
+ apiKey: "YOUR_API_KEY",
+ authDomain: "wrist-vogue.firebaseapp.com",
+ projectId: "wrist-vogue",
+ storageBucket: "wrist-vogue.appspot.com",
+ messagingSenderId: "239669630911",
+ appId: "YOUR_APP_ID"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);</body>
+const app = initializeApp(firebaseConfig);
+  </script><script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+
+const firebaseConfig = {
+ apiKey: "YOUR_API_KEY",
+ authDomain: "wrist-vogue.firebaseapp.com",
+ projectId: "wrist-vogue",
+ storageBucket: "wrist-vogue.appspot.com",
+ messagingSenderId: "239669630911",
+ appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+                         </script>
+</body>
 </html>

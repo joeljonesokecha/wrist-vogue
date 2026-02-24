@@ -1,17 +1,16 @@
 const products = [
-
 {
-name:"Luxury Watch",
-price:350,
-image:"media/watch1.jpg",
-description:"Premium wrist fashion"
+    id: 1,
+    name: "Royal Gold Chronograph",
+    price: 350,
+    category: "men",
+    image: "assets/images/watch1.jpg"
 },
-
 {
-name:"Classic Gold",
-price:420,
-image:"media/watch2.jpg",
-description:"Elegant modern style"
+    id: 2,
+    name: "Elegant Silver Queen",
+    price: 280,
+    category: "women",
+    image: "assets/images/watch2.jpg"
 }
-
 ];

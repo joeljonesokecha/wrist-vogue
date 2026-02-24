@@ -172,3 +172,44 @@ function activateScrollAnimation() {
 displayProducts();
 
 document.getElementById("cart-overlay").addEventListener("click", closeCart);
+
+let currentProduct = null;
+let currentImageIndex = 0;
+
+function openProduct(product) {
+  currentProduct = product;
+  currentImageIndex = 0;
+
+  document.getElementById("modal-image").src = product.images[0];
+  document.getElementById("modal-title").innerText = product.name;
+  document.getElementById("modal-price").innerText = "$" + product.price;
+
+  document.getElementById("product-modal").style.display = "flex";
+}
+
+function closeProduct() {
+  document.getElementById("product-modal").style.display = "none";
+}
+
+function nextImage() {
+  currentImageIndex++;
+  if (currentImageIndex >= currentProduct.images.length) {
+    currentImageIndex = 0;
+  }
+  document.getElementById("modal-image").src =
+    currentProduct.images[currentImageIndex];
+}
+
+function prevImage() {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = currentProduct.images.length - 1;
+  }
+  document.getElementById("modal-image").src =
+    currentProduct.images[currentImageIndex];
+}
+
+function addModalToCart() {
+  addToCart(currentProduct.id);
+  closeProduct();
+}

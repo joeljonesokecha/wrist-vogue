@@ -131,11 +131,13 @@ document.addEventListener("click", function(e) {
    CART MODAL
 ========================= */
 function openCart() {
-  document.getElementById("cart-modal").style.display = "block";
+  document.getElementById("cart-panel").classList.add("active");
+  document.getElementById("cart-overlay").classList.add("active");
 }
 
 function closeCart() {
-  document.getElementById("cart-modal").style.display = "none";
+  document.getElementById("cart-panel").classList.remove("active");
+  document.getElementById("cart-overlay").classList.remove("active");
 }
 
 /* =========================
@@ -164,3 +166,5 @@ function activateScrollAnimation() {
    INIT
 ========================= */
 displayProducts();
+
+document.getElementById("cart-overlay").addEventListener("click", closeCart);

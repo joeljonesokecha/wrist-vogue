@@ -1,7 +1,7 @@
 const products = [
 {
     id: 1,
-    name: "hublotgeneve.jpeg",
+    name: "Hublot Geneve",
     price: 130000,
     category: "men",
     image: "assets/images/hublotgeneve.jpeg"

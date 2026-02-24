@@ -6,42 +6,61 @@ body {
   overflow-x: hidden;
 }
 
+/* Loader */
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 2s forwards 2s;
+}
+
+@keyframes fadeOut {
+  to {opacity: 0; visibility: hidden;}
+}
+
+/* Animated Gold Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  background: linear-gradient(90deg, #C6A75E, #e5c87a, #C6A75E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  letter-spacing: 3px;
+}
+
+@keyframes shine {
+  from {background-position: -200px;}
+  to {background-position: 200px;}
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 20px 40px;
   background: rgba(0,0,0,0.9);
   position: sticky;
   top: 0;
   backdrop-filter: blur(10px);
-  z-index: 1000;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  color: #C6A75E;
-  letter-spacing: 3px;
 }
 
 .hero {
   height: 90vh;
-  background: linear-gradient(to bottom, #000000, #111111);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  background: radial-gradient(circle at center, #111, #000);
 }
 
 .hero h2 {
   font-size: 60px;
   color: #C6A75E;
-  animation: fadeIn 2s ease forwards;
-}
-
-.hero p {
-  opacity: 0.8;
-  margin: 20px 0;
 }
 
 .hero button {
@@ -69,7 +88,6 @@ header {
   border: none;
   border-bottom: 2px solid #C6A75E;
   color: white;
-  outline: none;
 }
 
 .product-grid {
@@ -80,18 +98,16 @@ header {
 }
 
 .product-card {
-  background: #111;
+  background: rgba(20,20,20,0.8);
+  backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: 20px;
   transition: 0.5s;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideUp 0.8s forwards;
 }
 
 .product-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px #C6A75E55;
+  box-shadow: 0 0 40px #C6A75E44;
 }
 
 .product-card img {
@@ -106,7 +122,6 @@ button {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 .sidebar {
@@ -115,7 +130,6 @@ button {
   height: 100%;
   background: black;
   transition: 0.4s;
-  overflow: hidden;
 }
 
 .sidebar-content {
@@ -149,14 +163,16 @@ button {
   border-radius: 15px;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* WhatsApp Floating */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 0 20px #25D366;
   }
-    }

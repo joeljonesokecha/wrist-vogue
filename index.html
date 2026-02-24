@@ -11,6 +11,11 @@
 
 <body>
 
+<!-- Loading Screen -->
+<div id="loader">
+  <h1 class="logo">Wrist Vogue</h1>
+</div>
+
 <!-- Sidebar -->
 <div id="sidebar" class="sidebar">
   <div class="sidebar-content">
@@ -23,28 +28,24 @@
   </div>
 </div>
 
-<!-- Header -->
 <header>
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
   <h1 class="logo">Wrist Vogue</h1>
   <div class="cart-icon" onclick="openCart()">🛒 <span id="cart-count">0</span></div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
-  <div class="hero-overlay">
+  <div>
     <h2>Timeless Luxury</h2>
     <p>Precision. Elegance. Power.</p>
     <button onclick="scrollToProducts()">Explore Collection</button>
   </div>
 </section>
 
-<!-- Search -->
 <div class="search-container">
   <input type="text" id="search" placeholder="Search watches..." onkeyup="searchProducts()">
 </div>
 
-<!-- Products -->
 <section id="products" class="product-grid"></section>
 
 <!-- Cart -->
@@ -54,10 +55,13 @@
     <h2>Your Selection</h2>
     <div id="cart-items"></div>
     <p id="cart-total"></p>
+    <button onclick="checkout()">Checkout</button>
   </div>
 </div>
 
-<!-- Contact -->
+<!-- WhatsApp Button -->
+<a href="https://wa.me/256XXXXXXXXX" class="whatsapp-btn" target="_blank">💬</a>
+
 <section id="contact" class="contact">
   <h2>Contact Wrist Vogue</h2>
   <p>WhatsApp: +256...</p>
@@ -67,4 +71,4 @@
 <script src="products/products.js"></script>
 <script src="js/app.js"></script>
 </body>
-      </html>
+</html>

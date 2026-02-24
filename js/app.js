@@ -7,13 +7,15 @@ function displayProducts(filtered = products) {
   const container = document.getElementById("products");
   container.innerHTML = "";
 
-  filtered.forEach((product, index) => {
+  filtered.forEach((product) => {
     container.innerHTML += `
-      <div class="product-card">
+      <div class="product-card" onclick="openProduct(${product.id})">
         <img src="${product.images[0]}" />
         <h3>${product.name}</h3>
         <p>$${product.price}</p>
-        <button onclick="addToCart(${product.id})">Add to Cart</button>
+        <button onclick="addToCart(${product.id}); event.stopPropagation();">
+          Add to Cart
+        </button>
       </div>
     `;
   });

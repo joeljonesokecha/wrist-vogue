@@ -87,5 +87,26 @@ particlesJS("particles", {
   }
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 70 },
+      color: { value: "#C6A75E" },
+      shape: { type: "circle" },
+      opacity: { value: 0.4 },
+      size: { value: 2 },
+      move: { enable: true, speed: 1 }
+    },
+    interactivity: {
+      events: {
+        onhover: { enable: true, mode: "repulse" }
+      }
+    }
+  });
+});
+      </script>
 </body>
 </html>

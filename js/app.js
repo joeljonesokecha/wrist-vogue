@@ -1,3 +1,72 @@
+let cart = [];
+
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
+function displayProducts(filtered = products) {
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+
+  filtered.forEach((product, index) => {
+    container.innerHTML += `
+      <div class="product-card">
+        <img src="${product.image}">
+        <h3>${product.name}</h3>
+        <p>$${product.price}</p>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  activateScrollAnimation();
+}
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+function filterCategory(category) {
+  if (category === "all") {
+    displayProducts(products);
+  } else {
+    displayProducts(products.filter(p => p.category === category));
+  }
+}
+
+/* =========================
+   SEARCH
+========================= */
+function searchProducts() {
+  const value = document.getElementById("search").value.toLowerCase();
+  displayProducts(products.filter(p => 
+    p.name.toLowerCase().includes(value)
+  ));
+}
+
+/* =========================
+   CART SYSTEM
+========================= */
+function addToCart(id) {
+  const item = products.find(p => p.id === id);
+  cart.push(item);
+  updateCart();
+}
+
+function updateCart() {
+  document.getElementById("cart-count").innerText = cart.length;
+
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price;
+    cartItems.innerHTML += `<p>${item.name} - $${item.price}</p>`;
+  });
+
+  document.getElementById("cart-total").innerText = "Total: $" + total;
+}
+
 function checkout() {
   if (cart.length === 0) {
     alert("Your cart is empty.");
@@ -8,17 +77,60 @@ function checkout() {
     closeCart();
   }
 }
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = 1;
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
+
+/* =========================
+   SIDEBAR (FIXED VERSION)
+========================= */
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("active");
+}
+
+/* Close sidebar when clicking outside */
+window.addEventListener("click", function(e) {
+  const sidebar = document.getElementById("sidebar");
+  const menuIcon = document.querySelector(".menu-icon");
+
+  if (!sidebar.contains(e.target) && 
+      !menuIcon.contains(e.target)) {
+    sidebar.classList.remove("active");
+  }
 });
 
-document.querySelectorAll(".product-card").forEach(card => {
-  card.style.opacity = 0;
-  card.style.transform = "translateY(40px)";
-  observer.observe(card);
-});
+/* =========================
+   CART MODAL
+========================= */
+function openCart() {
+  document.getElementById("cart-modal").style.display = "block";
+}
+
+function closeCart() {
+  document.getElementById("cart-modal").style.display = "none";
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+function activateScrollAnimation() {
+  const cards = document.querySelectorAll(".product-card");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  });
+
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = "translateY(40px)";
+    observer.observe(card);
+  });
+}
+
+/* =========================
+   INIT
+========================= */
+displayProducts();

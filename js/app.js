@@ -10,7 +10,7 @@ function displayProducts(filtered = products) {
   filtered.forEach((product, index) => {
     container.innerHTML += `
       <div class="product-card">
-        <img src="${product.image}">
+        <img src="${product.images[0]}" />
         <h3>${product.name}</h3>
         <p>$${product.price}</p>
         <button onclick="addToCart(${product.id})">Add to Cart</button>

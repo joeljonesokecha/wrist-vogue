@@ -1,10 +1,10 @@
 const products = [
 {
     id: 1,
-    name: "Royal Gold Chronograph",
-    price: 350,
+    name: "Audemars Piquet Rose Gold",
+    price: 110000,
     category: "men",
-    image: "assets/images/watch1.jpg"
+    image: "assets/images/Audemars Piquet Rose Gold"
 },
 {
     id: 2,

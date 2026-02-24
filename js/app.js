@@ -60,8 +60,12 @@ function addToCart(id) {
 
 function updateCart() {
   const count = document.getElementById("cart-count");
-  count.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+count.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+count.style.transform = "scale(1.3)";
+setTimeout(() => {
+  count.style.transform = "scale(1)";
+}, 200);
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = "";
 

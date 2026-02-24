@@ -66,10 +66,15 @@ header {
   text-align: center;
   background: radial-gradient(circle at center, #111, #000);
 }
-
 .hero h2 {
-  font-size: 60px;
-  color: #C6A75E;
+  font-size: 64px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  opacity: 0.7;
+  font-size: 18px;
 }
 
 .hero button {

@@ -215,3 +215,7 @@ button:hover {
   height: 100%;
   z-index: -1;
   }
+#cart-count {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  }

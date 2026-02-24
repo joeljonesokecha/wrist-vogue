@@ -84,6 +84,14 @@ header {
   background: #e5c87a;
   transform: scale(1.05);
 }
+body {
+  animation: pageFade 0.8s ease-in;
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 .search-container {
   text-align: center;

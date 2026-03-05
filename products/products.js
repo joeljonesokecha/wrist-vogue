@@ -46,14 +46,14 @@ const products = [
     },
     {
         id: 5,
-        name: "Gold Standard",
-        price: 55000000,
+        name: "Cartier",
+        price: 130000,
         category: "men",
         images: [
-            "https://images.unsplash.com/photo-1548169874-53e85f753f1e?auto=format&fit=crop&w=800&q=80",
+            "images/masculinecartier.webp",
             "https://images.unsplash.com/photo-1619134778706-c4b5d601a751?auto=format&fit=crop&w=800&q=80"
         ],
-        description: "Solid gold link bracelet with an emerald face. A statement piece."
+        description: "Leather strap. A statement piece."
     },
     {
         id: 6,

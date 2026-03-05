@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrist Vogue | Timeless Luxury</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+    <div id="preloader">
+        <div class="loader-content">
+            <h1 class="logo-text">WRIST VOGUE</h1>
+            <div class="loading-bar"><div class="bar-fill"></div></div>
+        </div>
+    </div>
+
+    <header id="header">
+        <nav class="navbar">
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="ri-menu-4-line"></i>
+            </div>
+            
+            <div class="logo">WRIST VOGUE</div>
+            
+            <div class="nav-icons">
+                <div class="search-icon" id="search-trigger"><i class="ri-search-line"></i></div>
+                <div class="cart-icon" id="cart-trigger">
+                    <i class="ri-shopping-bag-3-line"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="search-bar-container" id="search-bar">
+            <input type="text" id="search-input" placeholder="Search for perfection...">
+            <i class="ri-close-line" id="close-search"></i>
+        </div>
+    </header>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <span>Menu</span>
+            <i class="ri-close-line" id="close-sidebar"></i>
+        </div>
+        <ul class="sidebar-links">
+            <li data-filter="all">All Watches</li>
+            <li data-filter="men">Men's Collection</li>
+            <li data-filter="women">Women's Collection</li>
+            <li data-filter="accessories">Accessories</li>
+            <li><a href="#contact">Contact Concierge</a></li>
+        </ul>
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in-up">Timeless Luxury</h1>
+            <p class="fade-in-up delay-1">Precision. Elegance. Power.</p>
+            <button class="cta-btn fade-in-up delay-2" onclick="document.getElementById('collection').scrollIntoView()">Explore Collection</button>
+        </div>
+        <div class="particles"></div>
+    </section>
+
+    <main>
+        <section class="filters" id="collection">
+            <div class="filter-buttons">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="men">Men</button>
+                <button data-filter="women">Women</button>
+            </div>
+        </section>
+
+        <section class="product-grid" id="product-container">
+            </section>
+    </main>
+
+    <section id="contact" class="contact-section">
+        <h2>Concierge Service</h2>
+        <p>Experience the pinnacle of customer care.</p>
+        <div class="contact-links">
+            <a href="#" class="contact-item"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+            <a href="#" class="contact-item"><i class="ri-mail-line"></i> Email Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">WRIST VOGUE</div>
+            <p>&copy; 2024 Wrist Vogue. Kampala, Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img id="modal-img" src="" alt="Watch">
+                    <div class="gallery-controls">
+                        <button id="prev-img"><i class="ri-arrow-left-s-line"></i></button>
+                        <button id="next-img"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title">Product Name</h2>
+                    <p class="price" id="modal-price">UGX 0</p>
+                    <p class="desc" id="modal-desc">Description goes here.</p>
+                    <button id="add-to-cart-modal" class="add-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <i class="ri-close-line" id="close-cart"></i>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-msg">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span id="cart-total">UGX 0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <a href="https://wa.me/" class="floating-wa" target="_blank">
+        <i class="ri-whatsapp-fill"></i>
+    </a>
+
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+              </html>
+  
